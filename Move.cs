@@ -20,7 +20,10 @@ public class Move : MonoBehaviour
 
     private void Update()
     {
+
         float px = 0, py = 0;
+        //if((gameObject.transform.position - pointer.position).magnitude < 3)
+
         px = Input.GetAxisRaw("Horizontal") * Time.deltaTime * speedMove;
         py = Input.GetAxisRaw("Vertical") * Time.deltaTime * speedMove;
         if(px == 0 && py == 0)
@@ -38,6 +41,7 @@ public class Move : MonoBehaviour
         
         pos.x += px;
         pos.y += py;
+
         pointer.position = pos;
         dirLine.SetPosition(0, gameObject.transform.position);
         dirLine.SetPosition(1, pointer.position);
