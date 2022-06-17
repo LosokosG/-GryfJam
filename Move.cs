@@ -9,7 +9,7 @@ public class Move : MonoBehaviour
     private LineRenderer dirLine;
     private Vector2 pos;
     private Rigidbody2D rb;
-    private bool temp;
+    private bool stop;
 
 
     private void Awake()
@@ -20,22 +20,24 @@ public class Move : MonoBehaviour
 
     private void Update()
     {
-        float px = 0, pY = 0;
-        if((px = Input.GetAxis("Horizontal") * Time.deltaTime * speedMove) == 0 && (pY = Input.GetAxis("Vertical") * Time.deltaTime * speedMove) == 0)
+        float px = 0, py = 0;
+        px = Input.GetAxisRaw("Horizontal") * Time.deltaTime * speedMove;
+        py = Input.GetAxisRaw("Vertical") * Time.deltaTime * speedMove;
+        if(px == 0 && py == 0)
         {
-            if(temp)
+            if(stop)
             {
-                temp = false;
+                stop = false;
                 ThrowBall(gameObject.transform.position, pointer.position);
             }
                 
             pos = gameObject.transform.position;
             
 
-        }else temp = true;
+        }else stop = true;
         
         pos.x += px;
-        pos.y += pY;
+        pos.y += py;
         pointer.position = pos;
         dirLine.SetPosition(0, gameObject.transform.position);
         dirLine.SetPosition(1, pointer.position);
