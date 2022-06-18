@@ -48,7 +48,8 @@ public class Move : MonoBehaviour
 
     private void Update()
     {
-        if (rb.velocity.Equals(0)) isStatic = true;
+
+        if (rb.velocity.magnitude <= 1) isStatic = true; else isStatic = false;
 
         float px = 0, py = 0;
 
@@ -74,20 +75,25 @@ public class Move : MonoBehaviour
         
         if (dist < 3) pointer.position = (Vector3)dir * dist + gameObject.transform.position;
         else pointer.position = (Vector3)dir * 3 + gameObject.transform.position;
-
-        dirLine.SetPosition(0, gameObject.transform.position);
-        dirLine.SetPosition(1, pointer.position);
-        dirLine.SetColors(new Color(dist, 0, 0, 255), new Color(dist * 4, 0, 0, 0));
-        camera.transform.position = new Vector3(pointer.position.x, pointer.position.y, -10);
-
+        if (isStatic)
+        {
+            dirLine.SetPosition(0, gameObject.transform.position);
+            dirLine.SetPosition(1, pointer.position);
+            dirLine.SetColors(new Color(dist, 0, 0, 255), new Color(dist * 4, 0, 0, 0));
+        }
+            camera.transform.position = new Vector3(pointer.position.x, pointer.position.y, -10);
+       
  
     }
 
     private void ThrowBall(Vector2 s, Vector2 e)
     {
+       
+        {
             rb.AddForce((s - e).normalized * (s - e).magnitude * 600, ForceMode2D.Force);
             StartCoroutine(ShakeCamera());
-    }
+        }
+        }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
