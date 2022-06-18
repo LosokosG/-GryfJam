@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 
 public class Move : MonoBehaviour
 {
+    public string lvl;
+
     [SerializeField] private InputActionReference RotateAction;
 
     [SerializeField] private Transform pointer;
@@ -20,9 +22,13 @@ public class Move : MonoBehaviour
     private bool stop;
     private float angle;
 
+    float cooldown = 5f;
+         
     private Vector2 dir;
     private Vector2 temp;
     private float dist;
+
+    bool isThrowable = true;
 
 
     private void Awake()
@@ -42,17 +48,26 @@ public class Move : MonoBehaviour
 
     private void Update()
     {
-   
+        
+        if (cooldown <= 0)
+        {
+            cooldown = 5f;
+            isThrowable = true;
+        }
         float px = 0, py = 0;
 
         px = Input.GetAxisRaw("Horizontal") * Time.deltaTime * speedMove;
         py = Input.GetAxisRaw("Vertical") * Time.deltaTime * speedMove;
         if (px == 0 && py == 0)
         {
-            if (stop)
+            if (stop && isThrowable)
             {
                 stop = false;
                 ThrowBall(gameObject.transform.position, pointer.position);
+               cooldown -= Time.deltaTime; 
+               
+
+                isThrowable = false;
             }
             pos = gameObject.transform.position;
         }
@@ -78,15 +93,15 @@ public class Move : MonoBehaviour
 
     private void ThrowBall(Vector2 s, Vector2 e)
     {
-        rb.AddForce((s - e).normalized * (s-e).magnitude * 600, ForceMode2D.Force);
-        StartCoroutine(ShakeCamera());
+            rb.AddForce((s - e).normalized * (s - e).magnitude * 600, ForceMode2D.Force);
+            StartCoroutine(ShakeCamera());
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.collider.tag == "Bullet")
+        if (col.collider.tag == "Bullet")
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(lvl);
         }
 
     }
