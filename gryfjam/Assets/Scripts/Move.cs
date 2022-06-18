@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 
 public class Move : MonoBehaviour
 {
+    public string lvl;
+
     [SerializeField] private InputActionReference RotateAction;
 
     [SerializeField] private Transform pointer;
@@ -86,7 +88,7 @@ public class Move : MonoBehaviour
     {
         if(col.collider.tag == "Bullet")
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(lvl);
         }
 
     }
