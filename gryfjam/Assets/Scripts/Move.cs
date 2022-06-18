@@ -28,7 +28,7 @@ public class Move : MonoBehaviour
     private Vector2 temp;
     private float dist;
 
-    bool isThrowable = true;
+    bool isStatic;
 
 
     private void Awake()
@@ -48,26 +48,17 @@ public class Move : MonoBehaviour
 
     private void Update()
     {
-        
-        if (cooldown <= 0)
-        {
-            cooldown = 5f;
-            isThrowable = true;
-        }
+       
         float px = 0, py = 0;
 
         px = Input.GetAxisRaw("Horizontal") * Time.deltaTime * speedMove;
         py = Input.GetAxisRaw("Vertical") * Time.deltaTime * speedMove;
         if (px == 0 && py == 0)
         {
-            if (stop && isThrowable)
+            if (stop && isStatic)
             {
                 stop = false;
                 ThrowBall(gameObject.transform.position, pointer.position);
-               cooldown -= Time.deltaTime; 
-               
-
-                isThrowable = false;
             }
             pos = gameObject.transform.position;
         }
