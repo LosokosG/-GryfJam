@@ -13,9 +13,6 @@ public class EnemyPer : MonoBehaviour
     
     [SerializeField] private float timerOfRate;
     [SerializeField] private GameObject bulletPrefabe;
-
-    [SerializeField] private float huj = 90f;
-
     private void Awake()
     {
         person = GameObject.FindGameObjectWithTag("Player").transform;
@@ -44,13 +41,13 @@ public class EnemyPer : MonoBehaviour
         {
             time += Time.deltaTime;
             timerOfRate += Time.deltaTime;
-            gun.transform.rotation = Quaternion.AxisAngle(Vector3.forward, Mathf.Sin(time)+huj);
+            gun.transform.rotation = Quaternion.AxisAngle(Vector3.forward, Mathf.Sin(time));
             if(timerOfRate > fireRate)
             {
                 Instantiate(bulletPrefabe, muzzle.transform.position, Quaternion.identity).gameObject.GetComponent<Rigidbody2D>().AddForce((muzzle.transform.position-gun.transform.position).normalized * forceShoot, ForceMode2D.Impulse);
                 timerOfRate = 0;
             }
-            //Destroy(gameObject, 5f);
+            Destroy(gameObject, 5f);
             yield return null;
         }
     }
