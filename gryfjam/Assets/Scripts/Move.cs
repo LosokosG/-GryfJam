@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
+
 
 public class Move : MonoBehaviour
 {
+    [SerializeField] private InputActionReference RotateAction;
+
     [SerializeField] private Transform pointer;
     [SerializeField] private float speedMove;
     [SerializeField] private GameObject camera;
@@ -14,33 +18,31 @@ public class Move : MonoBehaviour
     private Vector2 pos;
     private Rigidbody2D rb;
     private bool stop;
+    private float angle;
 
     private Vector2 dir;
     private Vector2 temp;
     private float dist;
 
 
-    float smooth = 5.0f;
-    float tiltAngle = 60.0f;
-
-
     private void Awake()
     {
+        RotateAction.action.Enable();
+        RotateAction.action.performed += Action_performed;
+
         rb = gameObject.GetComponent<Rigidbody2D>();
         dirLine = gameObject.GetComponent<LineRenderer>();
     }
 
+    private void Action_performed(InputAction.CallbackContext obj)
+    {
+        Vector3 value = obj.ReadValue<Vector2>();
+        rb.transform.LookAt(transform.position + Vector3.forward, -value);
+    }
+
     private void Update()
     {
-        if (Input.anyKey)
-        {
-            float tiltAroundZ = Input.GetAxis("Horizontal") * tiltAngle;
-            float tiltAroundX = Input.GetAxis("Vertical") * tiltAngle;
-            Quaternion target = Quaternion.Euler(tiltAroundX, 0, tiltAroundZ);
-            transform.rotation = Quaternion.Slerp(transform.rotation, target, Time.deltaTime * smooth);
-        }
-
-
+   
         float px = 0, py = 0;
 
         px = Input.GetAxisRaw("Horizontal") * Time.deltaTime * speedMove;
@@ -62,7 +64,7 @@ public class Move : MonoBehaviour
         pos.y = Mathf.Clamp(pos.y, transform.position.y - 3, transform.position.y + 3);
         dir = (pos - (Vector2)gameObject.transform.position).normalized;
         dist = Vector2.Distance(gameObject.transform.position, pos);
-
+        
         if (dist < 3) pointer.position = (Vector3)dir * dist + gameObject.transform.position;
         else pointer.position = (Vector3)dir * 3 + gameObject.transform.position;
 

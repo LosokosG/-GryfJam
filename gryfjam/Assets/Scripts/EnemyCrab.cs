@@ -13,6 +13,8 @@ public class EnemyCrab : MonoBehaviour
 
     [SerializeField] private AnimationCurve curve;
 
+    bool isDead;
+
     private float dist;
     private RaycastHit2D hit;   
     private Color raydebug = Color.red;
@@ -27,6 +29,8 @@ public class EnemyCrab : MonoBehaviour
     }
     private void Update()
     {
+        isDead = false;
+
         dist = Vector2.Distance(gameObject.transform.position, person.position);
         if(dist > radius) return;
         hit = Physics2D.Raycast(gameObject.transform.position, (person.position - gameObject.transform.position).normalized * dist);
@@ -47,9 +51,12 @@ public class EnemyCrab : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
+
         Destroy(gameObject);
         Global.score += Random.Range(50, 150);
         scoreText.text = $"SCORE [{Global.score}]";
+
+        isDead = true;
     }
     private IEnumerator JumpHit()
     {
