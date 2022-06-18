@@ -78,8 +78,8 @@ public class EnemyCrab : MonoBehaviour
             gameObject.transform.localScale = new Vector2(offset.y, offset.y);
             gameObject.transform.position = Vector2.Lerp(gameObject.transform.position, pos, 0.03f);
 
-            src.clip = jump;//huj
-            src.Play();
+            //src.clip = jump;//huj
+            src.PlayOneShot(jump);
 
             yield return null;
         }
