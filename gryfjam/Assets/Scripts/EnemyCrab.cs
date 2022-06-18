@@ -25,7 +25,7 @@ public class EnemyCrab : MonoBehaviour
     private void Awake()
     {
         person = GameObject.FindGameObjectWithTag("Player").transform;
-        //scoreText = GameObject.FindGameObjectWithTag("Score").GetComponent<TMP_Text>();
+        scoreText = GameObject.FindGameObjectWithTag("Score").GetComponent<TMP_Text>();
     }
     private void Update()
     {
@@ -54,7 +54,7 @@ public class EnemyCrab : MonoBehaviour
 
         Destroy(gameObject);
         Global.score += Random.Range(50, 150);
-        //scoreText.text = $"SCORE [{Global.score}]";
+        scoreText.text = $"SCORE [{Global.score}]";
 
         isDead = true;
     }
