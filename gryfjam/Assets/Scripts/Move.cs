@@ -48,14 +48,15 @@ public class Move : MonoBehaviour
 
     private void Update()
     {
-       
+
+
         float px = 0, py = 0;
 
         px = Input.GetAxisRaw("Horizontal") * Time.deltaTime * speedMove;
         py = Input.GetAxisRaw("Vertical") * Time.deltaTime * speedMove;
         if (px == 0 && py == 0)
         {
-            if (stop && isStatic)
+            if (stop)
             {
                 stop = false;
                 ThrowBall(gameObject.transform.position, pointer.position);
