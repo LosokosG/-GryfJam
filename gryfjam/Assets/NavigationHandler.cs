@@ -11,13 +11,22 @@ public class NavigationHandler : MonoBehaviour
     public List<GameObject> Cherrys = new List<GameObject>();
     GameObject currentPoint;
     int index;
+    public Collider2D ThisGhostCol;
 
+    public Collider2D GhostCol1;
+    public Collider2D GhostCol2;
+    public Collider2D GhostCol3;
+    public Collider2D GhostCol4;
     public Collider2D PlayerCol;
+
+    float countdown = 6;
 
     public Vector2 DestinationPosition;
 
     void Start()
     {
+        Collider2D ThisGhostCol = gameObject.GetComponent<Collider2D>();
+
         foreach (GameObject fooObj in GameObject.FindGameObjectsWithTag("DestinationPoint"))
         {
             Kids.Add(fooObj);
@@ -27,10 +36,16 @@ public class NavigationHandler : MonoBehaviour
 
     void Update()
     {
+        if (GhostAgent.pathPending) isStuck();
 
-     
-    
-        if (!GhostAgent.hasPath)
+       // Physics2D.IgnoreCollision(ThisGhostCol, GhostCol1);
+       // Physics2D.IgnoreCollision(ThisGhostCol, GhostCol2);
+       // Physics2D.IgnoreCollision(ThisGhostCol, GhostCol3);
+       // Physics2D.IgnoreCollision(ThisGhostCol, GhostCol4);
+
+
+
+        if (!GhostAgent.hasPath && !isStuck())
         {
             index = Random.Range(0, Kids.Count);
             currentPoint = Kids[index];
@@ -39,6 +54,21 @@ public class NavigationHandler : MonoBehaviour
         }
 
 
+    }
+
+    private bool isStuck()
+    {
+        countdown -= Time.deltaTime;
+        Debug.Log(countdown);
+        if (countdown == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
