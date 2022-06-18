@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class NavigationHandler : MonoBehaviour
 {
@@ -10,6 +10,9 @@ public class NavigationHandler : MonoBehaviour
     public List<GameObject> Kids = new List<GameObject>();
     GameObject currentPoint;
     int index;
+    Collider2D GhostCol;
+    public Collider2D PlayerCol;
+    public Collider2D CherryCol;
 
     bool DestinationComplete;
 
@@ -17,18 +20,17 @@ public class NavigationHandler : MonoBehaviour
 
     void Start()
     {
+        GhostCol = GetComponent<Collider2D>();
         GhostAgent = GetComponent<NavMeshAgent>();
     }
 
     void Update()
     {
-
+        Physics2D.IgnoreCollision(GhostCol, CherryCol);
         foreach (GameObject fooObj in GameObject.FindGameObjectsWithTag("DestinationPoint"))
         {
             Kids.Add(fooObj);
         }
-
-
         if (!GhostAgent.hasPath)
         {
 
@@ -37,9 +39,17 @@ public class NavigationHandler : MonoBehaviour
             DestinationPosition = new Vector2(currentPoint.gameObject.transform.position.x, currentPoint.gameObject.transform.position.y);
             SetDestinationPoint(DestinationPosition);
         }
+
+
     }
 
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.IsTouching(PlayerCol))
+        {
+            SceneManager.LoadScene(1);
+        }
+    }
     private void SetDestinationPoint(Vector2 DestPoint)
     {
         GhostAgent.SetDestination(DestPoint);
