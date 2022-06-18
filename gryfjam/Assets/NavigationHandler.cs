@@ -8,6 +8,7 @@ public class NavigationHandler : MonoBehaviour
 {
     NavMeshAgent GhostAgent;
     public List<GameObject> Kids = new List<GameObject>();
+    public List<GameObject> Cherrys = new List<GameObject>();
     GameObject currentPoint;
     int index;
     Collider2D GhostCol;
@@ -26,7 +27,7 @@ public class NavigationHandler : MonoBehaviour
 
     void Update()
     {
-        Physics2D.IgnoreCollision(GhostCol, CherryCol);
+    
         foreach (GameObject fooObj in GameObject.FindGameObjectsWithTag("DestinationPoint"))
         {
             Kids.Add(fooObj);
@@ -45,9 +46,19 @@ public class NavigationHandler : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //Death
         if (collision.collider.IsTouching(PlayerCol))
         {
             SceneManager.LoadScene(1);
+        }
+
+        Collider2D cherry = collision.gameObject.GetComponent<Collider2D>();
+        
+
+        //Cherry Collision
+        if(cherry.Equals(CherryCol))
+        {
+            Debug.Log(cherry.name);
         }
     }
     private void SetDestinationPoint(Vector2 DestPoint)

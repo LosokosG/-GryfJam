@@ -20,12 +20,8 @@ public class Move : MonoBehaviour
     private Vector2 pos;
     private Rigidbody2D rb;
     private bool stop;
-    private float angle;
-
-    float cooldown = 5f;
          
     private Vector2 dir;
-    private Vector2 temp;
     private float dist;
 
     bool isStatic;

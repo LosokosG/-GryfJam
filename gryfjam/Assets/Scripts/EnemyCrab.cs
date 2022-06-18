@@ -13,7 +13,6 @@ public class EnemyCrab : MonoBehaviour
 
     [SerializeField] private AnimationCurve curve;
 
-    bool isDead;
 
     private float dist;
     private RaycastHit2D hit;   
@@ -33,7 +32,6 @@ public class EnemyCrab : MonoBehaviour
     }
     private void Update()
     {
-        isDead = false;
 
         dist = Vector2.Distance(gameObject.transform.position, person.position);
         if(dist > radius) return;
@@ -60,7 +58,6 @@ public class EnemyCrab : MonoBehaviour
         Global.score += Random.Range(50, 150);
         //scoreText.text = $"SCORE [{Global.score}]";
 
-        isDead = true;
     }
     private IEnumerator JumpHit()
     {
