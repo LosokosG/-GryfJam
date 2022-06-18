@@ -22,10 +22,6 @@ public class EnemyCrab : MonoBehaviour
     [SerializeField] private float timerOfRate;
     [SerializeField] private TMP_Text scoreText;
 
-    public AudioClip jump;
-    public AudioClip idle;
-    public AudioSource src;
-
     private void Awake()
     {
         person = GameObject.FindGameObjectWithTag("Player").transform;
@@ -77,9 +73,6 @@ public class EnemyCrab : MonoBehaviour
             offset = curve.Evaluate(timer) * new Vector2(0,1);
             gameObject.transform.localScale = new Vector2(offset.y, offset.y);
             gameObject.transform.position = Vector2.Lerp(gameObject.transform.position, pos, 0.03f);
-
-            src.clip = jump;//huj
-            src.Play();
 
             yield return null;
         }
