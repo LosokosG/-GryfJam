@@ -48,7 +48,7 @@ public class Move : MonoBehaviour
 
     private void Update()
     {
-
+        if (rb.velocity.Equals(0)) isStatic = true;
 
         float px = 0, py = 0;
 
@@ -56,7 +56,7 @@ public class Move : MonoBehaviour
         py = Input.GetAxisRaw("Vertical") * Time.deltaTime * speedMove;
         if (px == 0 && py == 0)
         {
-            if (stop)
+            if (stop && isStatic)
             {
                 stop = false;
                 ThrowBall(gameObject.transform.position, pointer.position);
