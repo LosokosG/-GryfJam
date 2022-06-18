@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Muzzle
   - Gun
+  - DestinationPoint
   layers:
   - Default
   - TransparentFX
