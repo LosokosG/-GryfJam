@@ -10,4 +10,9 @@ public class StartLevel : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
