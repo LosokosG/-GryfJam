@@ -9,7 +9,7 @@ public class Open : MonoBehaviour
         
 
         int Counter = CherryScript.CherryCount;
-        if (CherryScript.CherryCount == 6)
+        if (CherryScript.CherryCount == 10)
         {
             Counter = 0;
             Destroy(gameObject);

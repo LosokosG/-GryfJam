@@ -836,7 +836,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 73211989}
   CollectAnim: {fileID: 1922035266}
   foundCherry: {fileID: 21300000, guid: 086a4a281a4475a4a8d74103e3e13307, type: 3}
-  CherryCount: 0
 --- !u!1 &130799439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,12 +1253,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 169217146}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_OverrideArea: 1
+  m_OverrideArea: 0
   m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
@@ -1326,10 +1325,6 @@ MonoBehaviour:
   Kids: []
   Cherrys: []
   ThisGhostCol: {fileID: 0}
-  GhostCol1: {fileID: 0}
-  GhostCol2: {fileID: 0}
-  GhostCol3: {fileID: 0}
-  GhostCol4: {fileID: 0}
   PlayerCol: {fileID: 1242973751}
   DestinationPosition: {x: 0, y: 0}
 --- !u!1 &191779245
@@ -8098,7 +8093,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 487886150}
   CollectAnim: {fileID: 1739882399}
   foundCherry: {fileID: 21300000, guid: 086a4a281a4475a4a8d74103e3e13307, type: 3}
-  CherryCount: 0
 --- !u!61 &487886149
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9104,8 +9098,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 683a519eb7936c942b5b0468f0fc1f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CherryCount: {fileID: 73211991}
-  CherryGameOBJ: {fileID: 73211986}
 --- !u!212 &637617420
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14389,7 +14381,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 762145938}
   CollectAnim: {fileID: 670565973}
   foundCherry: {fileID: 21300000, guid: 086a4a281a4475a4a8d74103e3e13307, type: 3}
-  CherryCount: 0
 --- !u!61 &762145937
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14670,7 +14661,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 818921904}
   CollectAnim: {fileID: 1958936742}
   foundCherry: {fileID: 21300000, guid: 086a4a281a4475a4a8d74103e3e13307, type: 3}
-  CherryCount: 0
 --- !u!61 &818921903
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14953,7 +14943,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 865817509}
   CollectAnim: {fileID: 949395776}
   foundCherry: {fileID: 21300000, guid: 086a4a281a4475a4a8d74103e3e13307, type: 3}
-  CherryCount: 0
 --- !u!61 &865817508
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27835,10 +27824,6 @@ MonoBehaviour:
   Kids: []
   Cherrys: []
   ThisGhostCol: {fileID: 0}
-  GhostCol1: {fileID: 0}
-  GhostCol2: {fileID: 0}
-  GhostCol3: {fileID: 0}
-  GhostCol4: {fileID: 0}
   PlayerCol: {fileID: 1242973751}
   DestinationPosition: {x: 0, y: 0}
 --- !u!4 &1390032244
@@ -27854,7 +27839,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1636616145}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &1390032245
 NavMeshAgent:
@@ -27911,7 +27896,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390032241}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
@@ -28422,10 +28407,6 @@ MonoBehaviour:
   Kids: []
   Cherrys: []
   ThisGhostCol: {fileID: 0}
-  GhostCol1: {fileID: 0}
-  GhostCol2: {fileID: 0}
-  GhostCol3: {fileID: 0}
-  GhostCol4: {fileID: 0}
   PlayerCol: {fileID: 1242973751}
   DestinationPosition: {x: 0, y: 0}
 --- !u!4 &1580847374
@@ -28441,7 +28422,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1636616145}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &1580847375
 NavMeshAgent:
@@ -28498,7 +28479,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580847371}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
@@ -28863,9 +28844,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 626945706}
-  - {fileID: 1580847374}
-  - {fileID: 207875074}
   - {fileID: 1390032244}
+  - {fileID: 207875074}
+  - {fileID: 1580847374}
   - {fileID: 471697226}
   - {fileID: 169217147}
   m_Father: {fileID: 0}
@@ -34656,7 +34637,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1880858179}
   CollectAnim: {fileID: 2106148390}
   foundCherry: {fileID: 21300000, guid: 086a4a281a4475a4a8d74103e3e13307, type: 3}
-  CherryCount: 0
 --- !u!61 &1880858178
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -44688,7 +44668,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1973239692}
   CollectAnim: {fileID: 902276883}
   foundCherry: {fileID: 21300000, guid: 086a4a281a4475a4a8d74103e3e13307, type: 3}
-  CherryCount: 0
 --- !u!61 &1973239691
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -50055,7 +50034,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 2119805881}
   CollectAnim: {fileID: 427083920}
   foundCherry: {fileID: 21300000, guid: 086a4a281a4475a4a8d74103e3e13307, type: 3}
-  CherryCount: 0
 --- !u!61 &2119805880
 BoxCollider2D:
   m_ObjectHideFlags: 0
