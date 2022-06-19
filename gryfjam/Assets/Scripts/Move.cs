@@ -105,7 +105,7 @@ public class Move : MonoBehaviour
 
         if (col.collider.tag == "Next Level")
         {
-            SceneManager.LoadScene(4);
+            SceneManager.LoadScene(5);
         }
 
 
