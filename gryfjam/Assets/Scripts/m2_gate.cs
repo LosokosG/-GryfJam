@@ -21,7 +21,7 @@ public class m2_gate : MonoBehaviour
         {
             if (parts_script.partsTaken == true)
             {
-                SceneManager.LoadScene(5);
+                SceneManager.LoadScene(6);
             }
         }
     }
