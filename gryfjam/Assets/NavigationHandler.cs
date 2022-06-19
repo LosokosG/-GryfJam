@@ -13,10 +13,6 @@ public class NavigationHandler : MonoBehaviour
     int index;
     public Collider2D ThisGhostCol;
 
-    public Collider2D GhostCol1;
-    public Collider2D GhostCol2;
-    public Collider2D GhostCol3;
-    public Collider2D GhostCol4;
     public Collider2D PlayerCol;
 
     float countdown = 3;
@@ -59,7 +55,6 @@ public class NavigationHandler : MonoBehaviour
     private bool isStuck()
     {
         countdown -= Time.deltaTime;
-        Debug.Log(countdown);
         if (countdown == 0)
         {
             countdown = 0;

@@ -13,12 +13,7 @@ public class CherryScript : MonoBehaviour
 
     public Sprite foundCherry;
 
-    int CherryCount = 0;
-    void Update()
-    {
-        if (CherryCount == 4) { SceneManager.LoadScene(2); Debug.Log("Next"); }
-    }
-
+    public static int CherryCount = 0;
     public void OnCollisionEnter2D(Collision2D collision)
     {
         CherryCount += 1;
