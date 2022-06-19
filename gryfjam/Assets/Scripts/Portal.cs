@@ -9,6 +9,7 @@ public class Portal : MonoBehaviour
     public GameObject parts;
     private m2_parts parts_script;
 
+
     // Start is called before the first frame update
     void Start()
     {
