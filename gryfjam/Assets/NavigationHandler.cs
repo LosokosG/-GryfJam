@@ -19,7 +19,7 @@ public class NavigationHandler : MonoBehaviour
     public Collider2D GhostCol4;
     public Collider2D PlayerCol;
 
-    float countdown = 6;
+    float countdown = 3;
 
     public Vector2 DestinationPosition;
 
@@ -62,6 +62,7 @@ public class NavigationHandler : MonoBehaviour
         Debug.Log(countdown);
         if (countdown == 0)
         {
+            countdown = 0;
             return true;
         }
         else
