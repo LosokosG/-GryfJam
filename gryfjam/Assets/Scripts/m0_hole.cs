@@ -16,7 +16,7 @@ public class m0_hole : MonoBehaviour
         if (col.collider.tag == "Player")
         {
           
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(3);
           
         }
     }
