@@ -20,7 +20,7 @@ public class Move : MonoBehaviour
     private Vector2 pos;
     private Rigidbody2D rb;
     private bool stop;
-         
+
     private Vector2 dir;
     private float dist;
 
@@ -97,6 +97,8 @@ public class Move : MonoBehaviour
         {
             SceneManager.LoadScene(lvl);
         }
+
+
 
     }
     public IEnumerator ShakeCamera()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class c2_gate : MonoBehaviour
+public class Portal : MonoBehaviour
 {
 
     public GameObject parts;
@@ -21,7 +21,7 @@ public class c2_gate : MonoBehaviour
         {
             if (parts_script.partsTaken == true)
             {
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(2);
             }
         }
     }
