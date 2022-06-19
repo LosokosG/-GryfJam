@@ -11,6 +11,7 @@ TagManager:
   - Gun
   - DestinationPoint
   - Enemy
+  - Musicus
   layers:
   - Default
   - TransparentFX
