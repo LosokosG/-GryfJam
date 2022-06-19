@@ -41,7 +41,7 @@ public class NavigationHandler : MonoBehaviour
 
 
 
-        if (!GhostAgent.hasPath && !isStuck())
+        if (!GhostAgent.hasPath || isStuck())
         {
             index = Random.Range(0, Kids.Count);
             currentPoint = Kids[index];
@@ -73,6 +73,11 @@ public class NavigationHandler : MonoBehaviour
         if (collision.collider.IsTouching(PlayerCol))
         {
             SceneManager.LoadScene(1);
+        }
+        if (collision.collider.tag == "Ghost")
+        {
+            Collider2D OtherGhostCol = collision.collider;
+            Physics2D.IgnoreCollision(ThisGhostCol, OtherGhostCol);
         }
 
     }
