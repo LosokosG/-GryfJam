@@ -73,7 +73,7 @@ public class EnemyCrab : MonoBehaviour
             }
             offset = curve.Evaluate(timer) * new Vector2(0,1);
             gameObject.transform.localScale = new Vector2(offset.y, offset.y);
-            gameObject.transform.position = Vector2.Lerp(gameObject.transform.position, pos, 0.03f);
+            gameObject.transform.position = Vector2.Lerp(gameObject.transform.position, pos, 0.005f);
 
             //src.clip = jump;//huj
             src.PlayOneShot(jump);

@@ -13,7 +13,7 @@ public class Move : MonoBehaviour
 
     [SerializeField] private Transform pointer;
     [SerializeField] private float speedMove;
-    [SerializeField] private GameObject camera;
+    [SerializeField] private GameObject camera, panel, spriteMask;
     [SerializeField] private float shakeCam; 
     [SerializeField] private float durationShake; 
     private LineRenderer dirLine;
@@ -34,6 +34,7 @@ public class Move : MonoBehaviour
 
         rb = gameObject.GetComponent<Rigidbody2D>();
         dirLine = gameObject.GetComponent<LineRenderer>();
+        StartCoroutine(LoadSc());
     }
 
     private void Action_performed(InputAction.CallbackContext obj)
@@ -97,8 +98,47 @@ public class Move : MonoBehaviour
         {
             SceneManager.LoadScene(lvl);
         }
+        else if (col.collider.tag == "Enemy")
+        {
+            StartCoroutine(Fail());
+        }
+
+        if (col.collider.tag == "Next Level")
+        {
+            SceneManager.LoadScene(4);
+        }
 
 
+    }
+    private IEnumerator Fail()
+    {
+        Vector2 scale = new Vector2(30, 30);
+
+        panel.SetActive(true);
+        while (scale.x > 1)
+        {
+            scale = Vector2.Lerp(scale, Vector2.zero, 0.03f);
+            spriteMask.transform.localScale = scale;
+            yield return null;
+          
+        }
+       // yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(3);
+       // panel.SetActive(false);
+
+    }
+    private IEnumerator LoadSc()
+    {
+        Vector2 scale = Vector2.zero;
+
+        panel.SetActive(true);
+        while (scale.x < 29)
+        {
+            scale = Vector2.Lerp(scale, new Vector2(30,30), 0.03f);
+            spriteMask.transform.localScale = scale;
+            yield return null;
+
+        }
 
     }
     public IEnumerator ShakeCamera()
