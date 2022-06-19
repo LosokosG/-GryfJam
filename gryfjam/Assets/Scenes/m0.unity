@@ -2687,6 +2687,8 @@ MonoBehaviour:
   pointer: {fileID: 1705253693608771542}
   speedMove: 1
   camera: {fileID: 1705253695243779982}
+  panel: {fileID: 0}
+  spriteMask: {fileID: 0}
   shakeCam: 0.3
   durationShake: 0.15
 --- !u!1 &1705253695205297081
