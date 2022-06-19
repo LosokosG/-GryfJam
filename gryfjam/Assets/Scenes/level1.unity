@@ -1279,9 +1279,8 @@ GameObject:
   - component: {fileID: 169217147}
   - component: {fileID: 169217151}
   - component: {fileID: 169217152}
-  - component: {fileID: 169217149}
   - component: {fileID: 169217148}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ghost_pink
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1319,32 +1318,6 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 1
   m_AffectedAgents: ffffffff
---- !u!61 &169217149
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 169217146}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0033246055, y: 0.07782002}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.45846772, y: 0.446624}
-  m_EdgeRadius: 0
 --- !u!114 &169217151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1359,7 +1332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Kids: []
   Cherrys: []
-  ThisGhostCol: {fileID: 169217149}
+  ThisGhostCol: {fileID: 0}
   PlayerCol: {fileID: 1242973751}
   DestinationPosition: {x: 0, y: 0}
 --- !u!195 &169217152
@@ -1546,7 +1519,9 @@ GameObject:
   - component: {fileID: 207875073}
   - component: {fileID: 207875075}
   - component: {fileID: 207875076}
-  m_Layer: 0
+  - component: {fileID: 207875078}
+  - component: {fileID: 207875077}
+  m_Layer: 7
   m_Name: ghost_blue sprite
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1665,6 +1640,35 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4, y: 0.32}
   m_EdgeRadius: 0
+--- !u!114 &207875077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207875072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c90fe371d44f2343af28d5a39f60e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerCol: {fileID: 1242973751}
+--- !u!58 &207875078
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207875072}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00000023055892, y: 0.05643663}
+  serializedVersion: 2
+  m_Radius: 0.22593886
 --- !u!1 &224171679
 GameObject:
   m_ObjectHideFlags: 0
@@ -7937,9 +7941,11 @@ GameObject:
   - component: {fileID: 459781261}
   - component: {fileID: 459781263}
   - component: {fileID: 459781262}
-  m_Layer: 0
+  - component: {fileID: 459781265}
+  - component: {fileID: 459781264}
+  m_Layer: 7
   m_Name: ghost_orange sprite
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8030,6 +8036,35 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!114 &459781264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459781260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c90fe371d44f2343af28d5a39f60e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerCol: {fileID: 1242973751}
+--- !u!58 &459781265
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459781260}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00000023055892, y: 0.05643663}
+  serializedVersion: 2
+  m_Radius: 0.22593886
 --- !u!1 &461744346
 GameObject:
   m_ObjectHideFlags: 0
@@ -8125,9 +8160,11 @@ GameObject:
   - component: {fileID: 471697226}
   - component: {fileID: 471697227}
   - component: {fileID: 471697228}
-  m_Layer: 0
+  - component: {fileID: 471697230}
+  - component: {fileID: 471697229}
+  m_Layer: 7
   m_Name: ghost_pink sprite
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8218,6 +8255,35 @@ PositionConstraint:
   m_Sources:
   - sourceTransform: {fileID: 169217147}
     weight: 1
+--- !u!114 &471697229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471697225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c90fe371d44f2343af28d5a39f60e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerCol: {fileID: 1242973751}
+--- !u!58 &471697230
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471697225}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00000023055892, y: 0.05643663}
+  serializedVersion: 2
+  m_Radius: 0.22593886
 --- !u!1 &487886147
 GameObject:
   m_ObjectHideFlags: 0
@@ -9035,7 +9101,9 @@ GameObject:
   - component: {fileID: 626945705}
   - component: {fileID: 626945704}
   - component: {fileID: 626945707}
-  m_Layer: 0
+  - component: {fileID: 626945709}
+  - component: {fileID: 626945708}
+  m_Layer: 7
   m_Name: ghost_red sprite
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -9154,6 +9222,35 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4539304, y: 0.44192562}
   m_EdgeRadius: 0
+--- !u!114 &626945708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626945703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c90fe371d44f2343af28d5a39f60e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerCol: {fileID: 1242973751}
+--- !u!58 &626945709
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626945703}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.00000023055892, y: 0.05643663}
+  serializedVersion: 2
+  m_Radius: 0.22593886
 --- !u!1 &627568083
 GameObject:
   m_ObjectHideFlags: 0
@@ -14797,9 +14894,8 @@ GameObject:
   - component: {fileID: 813264528}
   - component: {fileID: 813264532}
   - component: {fileID: 813264531}
-  - component: {fileID: 813264530}
   - component: {fileID: 813264529}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ghost_orange
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -14837,32 +14933,6 @@ MonoBehaviour:
   m_Area: 0
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
---- !u!61 &813264530
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 813264527}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0033246055, y: 0.07782002}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.45846772, y: 0.446624}
-  m_EdgeRadius: 0
 --- !u!195 &813264531
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -14899,7 +14969,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Kids: []
   Cherrys: []
-  ThisGhostCol: {fileID: 813264530}
+  ThisGhostCol: {fileID: 0}
   PlayerCol: {fileID: 1242973751}
   DestinationPosition: {x: 0, y: 0}
 --- !u!1 &818921901
@@ -28076,9 +28146,8 @@ GameObject:
   - component: {fileID: 1390032244}
   - component: {fileID: 1390032242}
   - component: {fileID: 1390032245}
-  - component: {fileID: 1390032246}
   - component: {fileID: 1390032247}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ghost_red
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -28099,7 +28168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Kids: []
   Cherrys: []
-  ThisGhostCol: {fileID: 1390032246}
+  ThisGhostCol: {fileID: 0}
   PlayerCol: {fileID: 1242973751}
   DestinationPosition: {x: 0, y: 0}
 --- !u!4 &1390032244
@@ -28139,32 +28208,6 @@ NavMeshAgent:
   m_BaseOffset: 0.16
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 1
---- !u!61 &1390032246
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1390032241}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0033246055, y: 0.07782002}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.45846772, y: 0.446624}
-  m_EdgeRadius: 0
 --- !u!114 &1390032247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28659,9 +28702,8 @@ GameObject:
   - component: {fileID: 1580847374}
   - component: {fileID: 1580847372}
   - component: {fileID: 1580847375}
-  - component: {fileID: 1580847376}
   - component: {fileID: 1580847377}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ghost_blue
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -28682,7 +28724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Kids: []
   Cherrys: []
-  ThisGhostCol: {fileID: 1580847376}
+  ThisGhostCol: {fileID: 0}
   PlayerCol: {fileID: 1242973751}
   DestinationPosition: {x: 0, y: 0}
 --- !u!4 &1580847374
@@ -28722,32 +28764,6 @@ NavMeshAgent:
   m_BaseOffset: 0.65
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 1
---- !u!61 &1580847376
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580847371}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.001897335, y: -0.34656283}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.64, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.71787095, y: 0.705579}
-  m_EdgeRadius: 0
 --- !u!114 &1580847377
 MonoBehaviour:
   m_ObjectHideFlags: 0

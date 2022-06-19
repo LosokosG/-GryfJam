@@ -34,12 +34,6 @@ public class NavigationHandler : MonoBehaviour
     {
         if (GhostAgent.pathPending) isStuck();
 
-       // Physics2D.IgnoreCollision(ThisGhostCol, GhostCol1);
-       // Physics2D.IgnoreCollision(ThisGhostCol, GhostCol2);
-       // Physics2D.IgnoreCollision(ThisGhostCol, GhostCol3);
-       // Physics2D.IgnoreCollision(ThisGhostCol, GhostCol4);
-
-
 
         if (!GhostAgent.hasPath || isStuck())
         {
@@ -72,12 +66,7 @@ public class NavigationHandler : MonoBehaviour
         //Death
         if (collision.collider.IsTouching(PlayerCol))
         {
-            SceneManager.LoadScene(1);
-        }
-        if (collision.collider.tag == "Ghost")
-        {
-            Collider2D OtherGhostCol = collision.collider;
-            Physics2D.IgnoreCollision(ThisGhostCol, OtherGhostCol);
+            SceneManager.LoadScene(4);
         }
 
     }
